@@ -1,7 +1,7 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: ClusterServiceVersion
 metadata:
-  name: hpe-ezmeral-datafabric-csi-operator.v1.0.7
+  name:  hpe-ezmeral-csi-operator.v1.0.7
   namespace: placeholder
   annotations:
     alm-examples: |-
