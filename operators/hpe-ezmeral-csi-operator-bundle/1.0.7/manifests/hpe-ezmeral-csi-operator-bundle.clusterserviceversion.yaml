@@ -1,7 +1,7 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: ClusterServiceVersion
 metadata:
-  name:  hpe-ezmeral-csi-operator.v1.0.7
+  name: hpe-ezmeral-csi-operator.v1.0.7
   namespace: placeholder
   annotations:
     alm-examples: |-
@@ -13,8 +13,8 @@ metadata:
             "name": "hpeezmeralcsidriver"
           },
           "spec": {
-            "controllerImage": "registry.connect.redhat.com/maprtech/csi-kdfprovisioner:1.2.3",
-            "nodeImage": "registry.connect.redhat.com/maprtech/csi-kdfplugin:1.2.5",
+            "controllerImage": "registry.connect.redhat.com/maprtech/csi-kdfprovisioner@sha256:6e4191ab562cdfdeeac133e75f6f0254cf47762a860a1bdf2ddc718cd3d31f71",
+            "nodeImage": "registry.connect.redhat.com/maprtech/csi-kdfplugin@sha256:88d5fd011655c834671f822cce00c7e08593204595152bbf9830ef0a3641ce92",
             "pullPolicy": "Always"
           }
         },
@@ -25,8 +25,8 @@ metadata:
             "name": "hpeezmeralnfscsidriver"
           },
           "spec": {
-            "controllerImage": "registry.connect.redhat.com/maprtech/csi-kdfprovisioner:1.2.3",
-            "nodeImage": "registry.connect.redhat.com/maprtech/csi-nfsplugin:1.0.5",
+            "controllerImage": "registry.connect.redhat.com/maprtech/csi-kdfprovisioner@sha256:6e4191ab562cdfdeeac133e75f6f0254cf47762a860a1bdf2ddc718cd3d31f71",
+            "nodeImage": "registry.connect.redhat.com/maprtech/csi-nfsplugin@sha256:62c7e3d07ecb9d0ede27668aa12a891ff73d737c8f447fe181313f8f30b80908",
             "pullPolicy": "Always"
           }
         }
@@ -35,7 +35,7 @@ metadata:
     categories: Storage
     certified: 'true'
     description: A Container Storage Interface (CSI) driver for HPE Ezmeral Data Fabric platform. The CSI driver allows you to use HPE Ezmeral Data Fabric with your preferred container orchestrator.
-    containerImage: registry.connect.redhat.com/maprtech/hpe-ezmeral-csi-operator:v1.0.6
+    containerImage: registry.connect.redhat.com/maprtech/hpe-ezmeral-csi-operator@sha256:7cb4a2461a55ae962b3754f65132b31a786eb3fd8693f7f90b1f547736fdf768
     createdAt: 2021-10-27T13:49:10Z
     support: 'HPE Ezmeral Data Fabric'
     repository: https://github.com/mapr/mapr-csi
@@ -87,90 +87,90 @@ spec:
       version: v1
       description: HPE Ezmeral CSI Driver (FUSE)
       resources:
-        - version: v1
-          kind: Deployment
-        - version: v1
-          kind: Service
-        - version: v1
-          kind: ReplicaSet
-        - version: v1
-          kind: Pod
-        - version: v1
-          kind: Secret
-        - version: v1
-          kind: ConfigMap
+      - version: v1
+        kind: Deployment
+      - version: v1
+        kind: Service
+      - version: v1
+        kind: ReplicaSet
+      - version: v1
+        kind: Pod
+      - version: v1
+        kind: Secret
+      - version: v1
+        kind: ConfigMap
       specDescriptors:
-        - displayName: Image Pull Policy
-          description: Image pull policy for all images used in the HPE Ezmeral CSI Driver (FUSE) deployment
-          path: pullPolicy
-          x-descriptors:
-            - 'urn:alm:descriptor:com.tectonic.ui:imagePullPolicy'
-        - displayName: Controller Image
-          description: Full controller image path for HPE Ezmeral CSI Driver (FUSE)
-          path: controllerImage
-          x-descriptors:
-            - 'urn:alm:descriptor:com.tectonic.ui:text'
-        - displayName: Node Image
-          description: Full node plugin image path for HPE Ezmeral CSI Driver (FUSE)
-          path: nodeImage
-          x-descriptors:
-            - 'urn:alm:descriptor:com.tectonic.ui:text'
+      - displayName: Image Pull Policy
+        description: Image pull policy for all images used in the HPE Ezmeral CSI Driver (FUSE) deployment
+        path: pullPolicy
+        x-descriptors:
+        - 'urn:alm:descriptor:com.tectonic.ui:imagePullPolicy'
+      - displayName: Controller Image
+        description: Full controller image path for HPE Ezmeral CSI Driver (FUSE)
+        path: controllerImage
+        x-descriptors:
+        - 'urn:alm:descriptor:com.tectonic.ui:text'
+      - displayName: Node Image
+        description: Full node plugin image path for HPE Ezmeral CSI Driver (FUSE)
+        path: nodeImage
+        x-descriptors:
+        - 'urn:alm:descriptor:com.tectonic.ui:text'
       statusDescriptors:
-        - displayName: Conditions
-          description: HPE Ezmeral CSI Driver (FUSE) Helm release status
-          path: conditions
-          x-descriptors:
-            - 'urn:alm:descriptor:io.kubernetes.conditions'
-        - displayName: DeployedRelease
-          description: HPE Ezmeral CSI Driver (FUSE) Helm release
-          path: deployedRelease
-          x-descriptors:
-            - 'urn:alm:descriptor:text'
+      - displayName: Conditions
+        description: HPE Ezmeral CSI Driver (FUSE) Helm release status
+        path: conditions
+        x-descriptors:
+        - 'urn:alm:descriptor:io.kubernetes.conditions'
+      - displayName: DeployedRelease
+        description: HPE Ezmeral CSI Driver (FUSE) Helm release
+        path: deployedRelease
+        x-descriptors:
+        - 'urn:alm:descriptor:text'
     - name: hpeezmeralnfscsidrivers.ezmeral.hpe.com
       kind: HPEEzmeralNFSCSIDriver
       displayName: HPEEzmeralNFSCSIDriver
       version: v1
       description: HPE Ezmeral CSI Driver (NFS)
       resources:
-        - version: v1
-          kind: Deployment
-        - version: v1
-          kind: Service
-        - version: v1
-          kind: ReplicaSet
-        - version: v1
-          kind: Pod
-        - version: v1
-          kind: Secret
-        - version: v1
-          kind: ConfigMap
+      - version: v1
+        kind: Deployment
+      - version: v1
+        kind: Service
+      - version: v1
+        kind: ReplicaSet
+      - version: v1
+        kind: Pod
+      - version: v1
+        kind: Secret
+      - version: v1
+        kind: ConfigMap
       specDescriptors:
-        - displayName: Image Pull Policy
-          description: Image pull policy for all images used in the HPE Ezmeral CSI Driver (NFS) deployment
-          path: pullPolicy
-          x-descriptors:
-            - 'urn:alm:descriptor:com.tectonic.ui:imagePullPolicy'
-        - displayName: Controller Image
-          description: Full controller image path for HPE Ezmeral CSI Driver (NFS)
-          path: controllerImage
-          x-descriptors:
-            - 'urn:alm:descriptor:com.tectonic.ui:text'
-        - displayName: Node Image
-          description: Full node plugin image path for HPE Ezmeral CSI Driver (NFS)
-          path: nodeImage
-          x-descriptors:
-            - 'urn:alm:descriptor:com.tectonic.ui:text'
+      - displayName: Image Pull Policy
+        description: Image pull policy for all images used in the HPE Ezmeral CSI Driver (NFS) deployment
+        path: pullPolicy
+        x-descriptors:
+        - 'urn:alm:descriptor:com.tectonic.ui:imagePullPolicy'
+      - displayName: Controller Image
+        description: Full controller image path for HPE Ezmeral CSI Driver (NFS)
+        path: controllerImage
+        x-descriptors:
+        - 'urn:alm:descriptor:com.tectonic.ui:text'
+      - displayName: Node Image
+        description: Full node plugin image path for HPE Ezmeral CSI Driver (NFS)
+        path: nodeImage
+        x-descriptors:
+        - 'urn:alm:descriptor:com.tectonic.ui:text'
       statusDescriptors:
-        - displayName: Conditions
-          description: HPE Ezmeral CSI Driver (NFS) Helm release status
-          path: conditions
-          x-descriptors:
-            - 'urn:alm:descriptor:io.kubernetes.conditions'
-        - displayName: DeployedRelease
-          description: HPE Ezmeral CSI Driver (NFS) Helm release
-          path: deployedRelease
-          x-descriptors:
-            - 'urn:alm:descriptor:text'
+      - displayName: Conditions
+        description: HPE Ezmeral CSI Driver (NFS) Helm release status
+        path: conditions
+        x-descriptors:
+        - 'urn:alm:descriptor:io.kubernetes.conditions'
+      - displayName: DeployedRelease
+        description: HPE Ezmeral CSI Driver (NFS) Helm release
+        path: deployedRelease
+        x-descriptors:
+        - 'urn:alm:descriptor:text'
   install:
     spec:
       clusterPermissions:
@@ -281,11 +281,11 @@ spec:
                 - --leader-election-id=hpe-ezmeral-csi-operator
                 env:
                 - name: CSI_NODE_IMAGE
-                  value: registry.connect.redhat.com/maprtech/csi-kdfplugin:1.2.5
+                  value: registry.connect.redhat.com/maprtech/csi-kdfplugin@sha256:88d5fd011655c834671f822cce00c7e08593204595152bbf9830ef0a3641ce92
                 - name: NFSCSI_NODE_IMAGE
-                  value: registry.connect.redhat.com/maprtech/csi-nfsplugin:1.0.5
+                  value: registry.connect.redhat.com/maprtech/csi-nfsplugin@sha256:62c7e3d07ecb9d0ede27668aa12a891ff73d737c8f447fe181313f8f30b80908
                 - name: CSI_CONTROLLER_IMAGE
-                  value: registry.connect.redhat.com/maprtech/csi-kdfprovisioner:1.2.3
+                  value: registry.connect.redhat.com/maprtech/csi-kdfprovisioner@sha256:6e4191ab562cdfdeeac133e75f6f0254cf47762a860a1bdf2ddc718cd3d31f71
                 - name: WATCH_NAMESPACE
                   valueFrom:
                     fieldRef:
@@ -294,7 +294,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: registry.connect.redhat.com/maprtech/hpe-ezmeral-csi-operator:v1.0.6
+                image: registry.connect.redhat.com/maprtech/hpe-ezmeral-csi-operator@sha256:7cb4a2461a55ae962b3754f65132b31a786eb3fd8693f7f90b1f547736fdf768
                 imagePullPolicy: Always
                 name: hpe-ezmeral-csi-operator
                 resources:
@@ -337,3 +337,14 @@ spec:
     type: MultiNamespace
   - supported: false
     type: AllNamespaces
+  relatedImages:
+  - name: hpe-ezmeral-csi-operator-7cb4a2461a55ae962b3754f65132b31a786eb3fd8693f7f90b1f547736fdf768-annotation
+    image: registry.connect.redhat.com/maprtech/hpe-ezmeral-csi-operator@sha256:7cb4a2461a55ae962b3754f65132b31a786eb3fd8693f7f90b1f547736fdf768
+  - name: hpe-ezmeral-csi-operator
+    image: registry.connect.redhat.com/maprtech/hpe-ezmeral-csi-operator@sha256:7cb4a2461a55ae962b3754f65132b31a786eb3fd8693f7f90b1f547736fdf768
+  - name: csi-nfsplugin-62c7e3d07ecb9d0ede27668aa12a891ff73d737c8f447fe181313f8f30b80908-annotation
+    image: registry.connect.redhat.com/maprtech/csi-nfsplugin@sha256:62c7e3d07ecb9d0ede27668aa12a891ff73d737c8f447fe181313f8f30b80908
+  - name: csi-kdfprovisioner-6e4191ab562cdfdeeac133e75f6f0254cf47762a860a1bdf2ddc718cd3d31f71-annotation
+    image: registry.connect.redhat.com/maprtech/csi-kdfprovisioner@sha256:6e4191ab562cdfdeeac133e75f6f0254cf47762a860a1bdf2ddc718cd3d31f71
+  - name: csi-kdfplugin-88d5fd011655c834671f822cce00c7e08593204595152bbf9830ef0a3641ce92-annotation
+    image: registry.connect.redhat.com/maprtech/csi-kdfplugin@sha256:88d5fd011655c834671f822cce00c7e08593204595152bbf9830ef0a3641ce92
